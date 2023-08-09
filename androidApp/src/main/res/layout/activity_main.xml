@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@android:color/white"
+    tools:context=".ui.weatherlist.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="@android:color/white">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/custom_toolbar" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/main_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/search_area"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_18sdp">
+
+            <EditText
+                android:id="@+id/search_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_26sdp"
+                android:background="@drawable/rounded_gray"
+                android:fontFamily="@font/poppins_400"
+                android:hint="@string/enter_city_name"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:textColor="@color/colorTextDark"
+                android:textColorHint="@color/colorTextLight"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:id="@+id/search_btn"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:src="@drawable/ic_magnifier" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/weather_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_area"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/no_internet_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_600"
+            android:text="@string/please_check_your_internet_connection"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/no_internet_button"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_below="@id/text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/rounded_red_bg"
+            android:fontFamily="@font/poppins_600"
+            android:text="Retry"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_15sdp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/loader_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
